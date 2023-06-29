@@ -4,11 +4,15 @@ import { Products } from "protocols";
 import httpStatus from "http-status";
 
 
-export function createProducts(req: Request, res: Response){
+export async function createProducts(req: Request, res: Response){
 
-    const products = req.body as Products
-    productsService.createProducts(products)
-
+    const {name, descricao, valor, image} = req.body as Products
+    await productsService.createProducts({
+        name, 
+        descricao,
+        valor,
+        image
+    })
     res.sendStatus(httpStatus.CREATED)
 }
 
@@ -16,7 +20,6 @@ export async function getProducts(req: Request, res: Response){
 
     const products = await productsService.getProducts()
     res.send(products)
-
 }
 
 export function editProducts(req: Request, res: Response){

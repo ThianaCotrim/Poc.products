@@ -10,3 +10,4 @@ const configDataBase: pg.PoolConfig = {
 console.log('Database running');
 
 export const db = new Pool(configDataBase);
+
