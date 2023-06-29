@@ -12,9 +12,9 @@ export function createProducts(req: Request, res: Response){
     res.sendStatus(httpStatus.CREATED)
 }
 
-export function getProducts(req: Request, res: Response){
+export async function getProducts(req: Request, res: Response){
 
-    const products = productsService.getProducts()
+    const products = await productsService.getProducts()
     res.send(products)
 
 }
