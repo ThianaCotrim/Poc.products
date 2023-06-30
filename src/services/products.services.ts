@@ -9,7 +9,7 @@ export function getProducts(){
     return productsControllers.getProducts()
 }
 
-export async function deleteProducts(){
-    return productsControllers.deleteProducts()
+export async function deleteProducts(id: number){
+    return productsControllers.deleteProducts(id)
 }
 

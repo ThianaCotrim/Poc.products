@@ -26,6 +26,10 @@ export function editProducts(req: Request, res: Response){
 
 }
 
-export function deleteProducts(req: Request, res: Response){
-    
+export async function deleteProducts(req: Request, res: Response){
+    const id: number = Number(req.params.id);
+
+    await productsService.deleteProducts(id)
+    res.sendStatus(httpStatus.OK)
+
 }

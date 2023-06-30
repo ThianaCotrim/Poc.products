@@ -1,3 +1,4 @@
+import { Products } from "protocols"
 import { db } from "../database/database.connection"
 
 export function createProducts({name, descricao, valor, image}){
@@ -12,6 +13,7 @@ export async function getProducts(){
     return productsall.rows
 }
 
-export async function deleteProducts(){
-    
+export async function deleteProducts(id: number){
+    const deleteProducts = await db.query<Products>(`DELETE FROM products WHERE id=$1`, [id])
+    return deleteProducts
 }
