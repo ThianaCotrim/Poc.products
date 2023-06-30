@@ -9,6 +9,16 @@ export function getProducts(){
     return productsControllers.getProducts()
 }
 
+export function editProducts({id, name, descricao, valor, image}){
+    return productsControllers.editProducts({
+        id,
+        name, 
+        descricao,
+        valor,
+        image,
+    })
+}
+
 export async function deleteProducts(id: number){
     return productsControllers.deleteProducts(id)
 }

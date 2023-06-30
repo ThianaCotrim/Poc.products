@@ -22,8 +22,18 @@ export async function getProducts(req: Request, res: Response){
     res.send(products)
 }
 
-export function editProducts(req: Request, res: Response){
+export async function editProducts(req: Request, res: Response){
 
+    const {id} = req.params
+    const {name, descricao, valor, image} = req.body as Products
+    await productsService.editProducts({ 
+        id,
+        name, 
+        descricao,
+        valor,
+        image
+    })
+    res.sendStatus(httpStatus.OK)
 }
 
 export async function deleteProducts(req: Request, res: Response){

@@ -7,4 +7,5 @@ export type Products = {
     image: string;
 }
 
+
 export type createProducts = Omit<Products, "id">
